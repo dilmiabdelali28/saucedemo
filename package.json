@@ -1,0 +1,42 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright test demo",
+  "main": "index.js",
+  "scripts": {
+    "allure:clean": "rm -rf report/allure-results report/allure-report",
+    "allure:generate": "rm -rf report/allure-report && allure generate report/allure-results -o report/allure-report",
+    "allure:open": "allure open report/allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "allure:smoke": "npm run allure:clean && playwright test --grep @smoke && npm run allure:generate",
+    "build": "echo 'no build'",
+    "check": "oxlint --quiet --type-aware --type-check",
+    "playwright-report:clean": "rm -rf playwright-report",
+    "report": "playwright show-report",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:localhost": "ENV=localhost playwright test --workers=2",
+    "test:localhost:headed": "ENV=localhost playwright test --headed --workers=1",
+    "test:localhost:smoke": "ENV=localhost playwright test --grep @smoke --workers=2",
+    "test:localhost:smoke:headed": "ENV=localhost playwright test --grep @smoke --headed --workers=2",
+    "test:ra": "playwright test --workers=3",
+    "test:ra:headed": "playwright test --headed --workers=2",
+    "test:ra:smoke": "playwright test --grep @smoke --workers=2",
+    "test:ra:smoke:headed": "playwright test --grep @smoke --headed --workers=2",
+    "test:smoke": "playwright test --grep @smoke --workers=2",
+    "test:smoke:headed": "playwright test --grep @smoke1 --headed",
+    "test:spec": "playwright test --workers=1",
+    "test:spec:headed": "playwright test --headed --grep @smoke --workers=2",
+    "ts-check": "tsgo --noEmit --skipLibCheck"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.3.0",
+    "allure": "^3.16.0",
+    "allure-playwright": "^3.4.2",
+    "axe-core": "4.8.4",
+    "bson-objectid": "^2.0.4",
+    "moment": "^2.30.1"
+  }
+}

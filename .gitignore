@@ -1,0 +1,11 @@
+
+# Playwright
+node_modules/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+pnpm-lock.yaml
+playwright-report/
+test-results/
+report/allure-results/
+report/allure-report/
