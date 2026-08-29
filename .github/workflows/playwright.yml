@@ -14,7 +14,7 @@ permissions:
 env:
   NODE_VERSION: "20"
   # Branch used as the GitHub Pages source.
-  PAGES_BRANCH: "gh-pages-all"
+  PAGES_BRANCH: "gh-pages-all2"
   # How many of the most recent reports to keep on the Pages branch.
   KEEP_REPORTS: "5"
 
