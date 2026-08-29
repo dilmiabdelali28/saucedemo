@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "allure:clean": "rm -rf report/allure-results report/allure-report",
-    "allure:generate": "allure generate report/allure-results --clean -o report/allure-report",
+    "allure:generate": "rm -rf report/allure-report && allure generate report/allure-results -o report/allure-report",
     "allure:open": "allure open report/allure-report",
     "allure:report": "npm run allure:generate && npm run allure:open",
     "allure:smoke": "npm run allure:clean && playwright test --grep @smoke && npm run allure:generate",
