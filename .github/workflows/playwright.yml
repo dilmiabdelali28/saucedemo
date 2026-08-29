@@ -119,11 +119,19 @@ jobs:
             '{run:$run,branch:$branch,status:$status,passed:$passed,failed:$failed,broken:$broken,flaky:$flaky,skipped:$skipped,total:$total,date:$date,sha:$sha,subject:$subject,pr:$pr,repo:$repo,runid:$runid}' \
             > report/allure-report/meta.json
 
-          # 4. Assemble the full branch content in ./public (never copy .git).
+          # 4. Assemble ./public. Carry forward ONLY the report site from the
+          #    previous deploy: numbered run folders, latest/, last-history/,
+          #    index.html. Never carry stray files — a leftover .gitignore makes
+          #    peaceiris' `git add` skip data/test-results/ and breaks the report.
           mkdir -p public
           if [ -d gh-pages ]; then
-            find gh-pages -mindepth 1 -maxdepth 1 ! -name '.git' -exec cp -r {} public/ \;
+            for item in gh-pages/latest gh-pages/last-history gh-pages/index.html; do
+              [ -e "$item" ] && cp -r "$item" public/
+            done
+            find gh-pages -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' -exec cp -r {} public/ \;
           fi
+          # Belt and suspenders: no .gitignore anywhere under public/.
+          find public -name '.gitignore' -delete
           # Add / replace this run's report under its own numbered folder,
           # and mirror it under the stable /latest/ URL.
           rm -rf "public/$RUN" public/latest
