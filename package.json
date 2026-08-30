@@ -28,7 +28,11 @@
     "test:smoke:headed": "playwright test --grep @smoke1 --headed",
     "test:spec": "playwright test --workers=1",
     "test:spec:headed": "playwright test --headed --grep @smoke --workers=2",
-    "ts-check": "tsgo --noEmit --skipLibCheck"
+    "ts-check": "tsgo --noEmit --skipLibCheck",
+    "//test:ui": "Mode UI interactif : timeline des actions, snapshots DOM avant/apres, watch, pick locator",
+    "test:ui": "playwright test --ui",
+    "//test:debug": "Playwright Inspector : execution en pause, avancer action par action (Step over / F10)",
+    "test:debug": "playwright test --debug"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
