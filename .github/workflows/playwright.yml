@@ -3,7 +3,7 @@ name: "🎭 E2E smoke tests + Allure report"
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * 1-5" # 12:00 UTC on weekdays
+    - cron: "0 * * * *" # every hour, every day (UTC)
   push:
     branches:
       - main
