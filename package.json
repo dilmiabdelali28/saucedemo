@@ -25,7 +25,7 @@
     "test:ra:smoke": "playwright test --grep @smoke --workers=2",
     "test:ra:smoke:headed": "playwright test --grep @smoke --headed --workers=2",
     "test:smoke": "playwright test --grep @smoke --workers=2",
-    "test:smoke:headed": "playwright test --grep @smoke1 --headed",
+    "test:smoke:headed": "playwright test --grep @smoke --headed",
     "test:spec": "playwright test --workers=1",
     "test:spec:headed": "playwright test --headed --grep @smoke --workers=2",
     "ts-check": "tsgo --noEmit --skipLibCheck",
